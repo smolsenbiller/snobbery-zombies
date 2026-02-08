@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://17du2m1y67ww"]
+
+[ext_resource type="Texture2D" uid="uid://b2wwdyq7wx3qd" path="res://assets/main-menu.png" id="1_vjb58"]
+[ext_resource type="Script" uid="uid://tjo3y4xueb5f" path="res://scripts/button.gd" id="1_yqeox"]
+
+[node name="Menu" type="Control" unique_id=186876564]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1908165634]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1697667395]
+modulate = Color(0.6, 0.6, 0.6, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(0.25008535, 0.25008535)
+texture = ExtResource("1_vjb58")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=793751738]
+modulate = Color(1, 1, 1, 0)
+offset_left = 101.0
+offset_top = 63.0
+offset_right = 187.0
+offset_bottom = 93.0
+script = ExtResource("1_yqeox")
+
+[node name="Button2" type="Button" parent="CanvasLayer" unique_id=934632045]
+modulate = Color(1, 1, 1, 0)
+offset_left = 101.0
+offset_top = 115.0
+offset_right = 187.0
+offset_bottom = 145.0
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="CanvasLayer/Button" method="_on_button_2_pressed"]

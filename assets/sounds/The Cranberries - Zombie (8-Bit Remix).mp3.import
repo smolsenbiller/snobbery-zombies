@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2byelqyt6wnu"
+path="res://.godot/imported/The Cranberries - Zombie (8-Bit Remix).mp3-2b093af23c7ca7ad6e6f2f2c258fcf59.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/The Cranberries - Zombie (8-Bit Remix).mp3"
+dest_files=["res://.godot/imported/The Cranberries - Zombie (8-Bit Remix).mp3-2b093af23c7ca7ad6e6f2f2c258fcf59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

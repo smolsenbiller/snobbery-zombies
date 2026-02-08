@@ -1,0 +1,354 @@
+[gd_scene format=3 uid="uid://bytsv41nrqkoe"]
+
+[ext_resource type="PackedScene" uid="uid://bim7fdsr8xi34" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bxy37qxtu1cte" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dapwke8s2ag04" path="res://assets/map-elements/grave_spawn.png" id="2_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://c52fbqybavmr7" path="res://assets/map-elements/new_map_foundation.png" id="2_tefeu"]
+[ext_resource type="Texture2D" uid="uid://2pla1kffgq5b" path="res://assets/map-elements/upper-wall.png" id="3_o6xl0"]
+[ext_resource type="Script" uid="uid://cviuivn1uaau7" path="res://scripts/middle_wall.gd" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://d0isa1uqyr07k" path="res://assets/map-elements/middle-walll.png" id="4_tipki"]
+[ext_resource type="Texture2D" uid="uid://b5p8gae3whcfa" path="res://assets/map-elements/lower-wall.png" id="5_o6xl0"]
+[ext_resource type="Script" uid="uid://n1g71wk8jk5e" path="res://scripts/lower_wall.gd" id="6_85g3d"]
+[ext_resource type="LabelSettings" uid="uid://c4kw8ldsmu0j2" path="res://assets/fonts/score_ammo_font.tres" id="9_choun"]
+[ext_resource type="Script" uid="uid://c0oiylxuwul7" path="res://scripts/buy_ammo.gd" id="11_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://bchtfyqinosxv" path="res://assets/bullet.png" id="12_trceg"]
+[ext_resource type="Script" uid="uid://bxagnlhvw3hh4" path="res://scenes/shotgun_mod.gd" id="13_trceg"]
+[ext_resource type="Script" uid="uid://dmjeagt33wkfc" path="res://scenes/automatic_mod.gd" id="14_a8y0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
+size = Vector2(72, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefeu"]
+size = Vector2(72, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(159, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_choun"]
+size = Vector2(72, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(72, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(8, 2)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_o6xl0"]
+vertices = PackedVector2Array(257, 289, 2, 289, 88, 245, 92, 245, 207, 52, 207, 239, 172, 239, 168, 154, 168, 136, 172, 52, 46, 245, 257, 2, 213, 245, 213, 46, 2, 2, 46, 46, 88, 46, 168, 52, 172, 46, 168, 46, 92, 52, 92, 136, 172, 245, 168, 245, 168, 239, 92, 154, 92, 239, 88, 239, 52, 239, 52, 52, 88, 52, 92, 46)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8, 9), PackedInt32Array(10, 2, 1), PackedInt32Array(11, 0, 12, 13), PackedInt32Array(10, 1, 14, 15), PackedInt32Array(15, 14, 11, 16), PackedInt32Array(9, 8, 17, 18), PackedInt32Array(18, 17, 19), PackedInt32Array(20, 17, 8, 21), PackedInt32Array(6, 22, 23, 24), PackedInt32Array(7, 6, 24, 25), PackedInt32Array(25, 24, 26), PackedInt32Array(27, 28, 29, 30, 21, 25), PackedInt32Array(11, 13, 18), PackedInt32Array(22, 12, 0), PackedInt32Array(11, 18, 19), PackedInt32Array(23, 22, 0), PackedInt32Array(11, 19, 31), PackedInt32Array(16, 11, 31), PackedInt32Array(16, 31, 20, 30), PackedInt32Array(30, 20, 21), PackedInt32Array(27, 25, 26), PackedInt32Array(27, 26, 3, 2), PackedInt32Array(0, 3, 23)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 259, 0, 259, 291, 0, 291), PackedVector2Array(86, 50, 86, 48, 48, 48, 48, 243, 86, 243, 86, 241, 50, 241, 50, 50), PackedVector2Array(94, 48, 94, 50, 166, 50, 166, 48), PackedVector2Array(211, 48, 174, 48, 174, 50, 209, 50, 209, 241, 174, 241, 174, 243, 211, 243), PackedVector2Array(166, 241, 94, 241, 94, 243, 166, 243), PackedVector2Array(166, 138, 94, 138, 94, 152, 166, 152)])
+agent_radius = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8y0u"]
+font_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkv2x"]
+font_size = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
+size = Vector2(20, 3)
+
+[node name="main" type="Node2D" unique_id=635146039]
+y_sort_enabled = true
+script = ExtResource("1_tefeu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2104748532]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 259.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tefeu")
+stretch_mode = 4
+
+[node name="UpperWall" type="Sprite2D" parent="." unique_id=174620357]
+position = Vector2(50, 48)
+texture = ExtResource("3_o6xl0")
+centered = false
+offset = Vector2(0, -16)
+region_enabled = true
+region_rect = Rect2(50, 32, 159, 18)
+
+[node name="MiddleWall" type="Area2D" parent="." unique_id=754485843]
+position = Vector2(94, 152)
+script = ExtResource("4_85g3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleWall" unique_id=1423360774]
+position = Vector2(0, -30)
+texture = ExtResource("4_tipki")
+centered = false
+region_enabled = true
+region_rect = Rect2(94, 122, 72, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleWall" unique_id=132556320]
+position = Vector2(36, -22)
+shape = SubResource("RectangleShape2D_85g3d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MiddleWall" unique_id=1156331685]
+position = Vector2(0, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleWall/StaticBody2D" unique_id=338240743]
+position = Vector2(36, 23)
+shape = SubResource("RectangleShape2D_tefeu")
+
+[node name="LowerWall" type="Area2D" parent="." unique_id=306249351]
+position = Vector2(50, 241)
+script = ExtResource("6_85g3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="LowerWall" unique_id=752015345]
+position = Vector2(0, -16)
+texture = ExtResource("5_o6xl0")
+centered = false
+region_enabled = true
+region_rect = Rect2(50, 225, 159, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerWall" unique_id=1065427325]
+position = Vector2(79.5, -8)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="WallCollisions" type="Node" parent="." unique_id=474789653]
+
+[node name="RightWall" type="StaticBody2D" parent="WallCollisions" unique_id=1292342547]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/RightWall" unique_id=1877414361]
+polygon = PackedVector2Array(174, 48, 211, 48, 211, 243, 174, 243, 174, 241, 209, 241, 209, 50, 174, 50)
+
+[node name="LeftWall" type="StaticBody2D" parent="WallCollisions" unique_id=564510225]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/LeftWall" unique_id=458786746]
+polygon = PackedVector2Array(86, 48, 86, 50, 50, 50, 50, 241, 86, 241, 86, 243, 48, 243, 48, 48)
+
+[node name="BottomMiddleWall" type="StaticBody2D" parent="WallCollisions" unique_id=553037892]
+position = Vector2(94, 241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/BottomMiddleWall" unique_id=1523227266]
+position = Vector2(36, 1)
+shape = SubResource("RectangleShape2D_choun")
+
+[node name="TopMiddleWall" type="StaticBody2D" parent="WallCollisions" unique_id=367650395]
+position = Vector2(94, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/TopMiddleWall" unique_id=1231452324]
+position = Vector2(36, 1)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="TopLeftWindow" type="StaticBody2D" parent="WallCollisions" unique_id=805726934]
+position = Vector2(86, 48)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/TopLeftWindow" unique_id=1661601556]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="TopRightWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1781097934]
+position = Vector2(166, 48)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/TopRightWindow" unique_id=624774729]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_trceg")
+
+[node name="BottomLeftWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1909451426]
+position = Vector2(86, 241)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/BottomLeftWindow" unique_id=2043834692]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="BottomRightWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1124488086]
+position = Vector2(166, 241)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollisions/BottomRightWindow" unique_id=1928176704]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="Player" parent="." unique_id=1871333918 instance=ExtResource("1_o5qli")]
+unique_name_in_owner = true
+position = Vector2(123, 191)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=778408093]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" unique_id=1045159839]
+
+[node name="RoundCount" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=234400965]
+modulate = Color(0.57, 0, 0, 1)
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 49.0
+offset_bottom = 28.0
+text = "1"
+
+[node name="GameOverText" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=636342486]
+visible = false
+modulate = Color(0.5686275, 0, 0, 1)
+offset_left = 51.0
+offset_top = 64.0
+offset_right = 223.0
+offset_bottom = 87.0
+text = "You survived x rounds"
+
+[node name="PlayerScore" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=940809676]
+offset_left = 6.0
+offset_top = 148.0
+offset_right = 104.0
+offset_bottom = 160.0
+text = "0"
+label_settings = ExtResource("9_choun")
+vertical_alignment = 1
+
+[node name="AmmoCount" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=875706870]
+unique_name_in_owner = true
+offset_left = 223.0
+offset_top = 148.0
+offset_right = 263.0
+offset_bottom = 171.0
+text = "8 / 32"
+label_settings = ExtResource("9_choun")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=719104958]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_o6xl0")
+
+[node name="SpawnTopLeft" type="Sprite2D" parent="." unique_id=168384272 groups=["spawns"]]
+position = Vector2(24, 16)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnTopRight" type="Sprite2D" parent="." unique_id=981349967 groups=["spawns"]]
+position = Vector2(238, 17)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnBottomRight" type="Sprite2D" parent="." unique_id=652633105 groups=["spawns"]]
+position = Vector2(236, 268)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnBottomLeft" type="Sprite2D" parent="." unique_id=956873161 groups=["spawns"]]
+position = Vector2(20, 268)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="BuyAmmo" type="Area2D" parent="." unique_id=505898701]
+z_index = 1
+position = Vector2(130, 144)
+script = ExtResource("11_eb6dy")
+
+[node name="Sprite2D" type="Sprite2D" parent="BuyAmmo" unique_id=1350281098]
+texture = ExtResource("12_trceg")
+region_enabled = true
+region_rect = Rect2(39, 7, 1, 1)
+
+[node name="ammo" type="Label" parent="BuyAmmo/Sprite2D" unique_id=1377575272]
+offset_left = -6.0
+offset_right = 45.0
+offset_bottom = 23.0
+text = "Ammo"
+label_settings = SubResource("LabelSettings_a8y0u")
+
+[node name="cost" type="Label" parent="BuyAmmo/Sprite2D" unique_id=104519049]
+visible = false
+offset_left = -19.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 12.0
+text = "500 points"
+label_settings = SubResource("LabelSettings_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuyAmmo" unique_id=1315013678]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_jbj1t")
+
+[node name="ShotgunMod" type="Area2D" parent="." unique_id=216470411]
+z_index = 1
+position = Vector2(66, 42)
+script = ExtResource("13_trceg")
+
+[node name="Sprite2D" type="Sprite2D" parent="ShotgunMod" unique_id=723225198]
+texture = ExtResource("12_trceg")
+region_enabled = true
+region_rect = Rect2(39, 7, 1, 1)
+
+[node name="shotgun" type="Label" parent="ShotgunMod/Sprite2D" unique_id=1204273682]
+offset_left = -12.0
+offset_right = 39.0
+offset_bottom = 23.0
+text = "Shotgun Mod"
+label_settings = SubResource("LabelSettings_a8y0u")
+
+[node name="cost" type="Label" parent="ShotgunMod/Sprite2D" unique_id=143811198]
+visible = false
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 25.0
+offset_bottom = 12.0
+text = "1250 points"
+label_settings = SubResource("LabelSettings_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShotgunMod" unique_id=519930096]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_jbj1t")
+
+[node name="AutomaticMod" type="Area2D" parent="." unique_id=1093480430]
+z_index = 1
+position = Vector2(194, 42)
+script = ExtResource("14_a8y0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="AutomaticMod" unique_id=117398110]
+texture = ExtResource("12_trceg")
+region_enabled = true
+region_rect = Rect2(39, 7, 1, 1)
+
+[node name="automatic" type="Label" parent="AutomaticMod/Sprite2D" unique_id=626460842]
+offset_left = -15.0
+offset_right = 36.0
+offset_bottom = 23.0
+text = "Automatic Mod"
+label_settings = SubResource("LabelSettings_a8y0u")
+
+[node name="cost" type="Label" parent="AutomaticMod/Sprite2D" unique_id=1946189585]
+visible = false
+offset_left = -21.0
+offset_top = -11.0
+offset_right = 24.0
+offset_bottom = 12.0
+text = "2000 points"
+label_settings = SubResource("LabelSettings_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutomaticMod" unique_id=11134602]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_jbj1t")
+
+[connection signal="body_entered" from="MiddleWall" to="MiddleWall" method="_on_body_entered"]
+[connection signal="body_exited" from="MiddleWall" to="MiddleWall" method="_on_body_exited"]
+[connection signal="body_entered" from="LowerWall" to="LowerWall" method="_on_body_entered"]
+[connection signal="body_exited" from="LowerWall" to="LowerWall" method="_on_body_exited"]
+[connection signal="body_entered" from="BuyAmmo" to="BuyAmmo" method="_on_body_entered"]
+[connection signal="body_exited" from="BuyAmmo" to="BuyAmmo" method="_on_body_exited"]
+[connection signal="body_entered" from="ShotgunMod" to="ShotgunMod" method="_on_body_entered"]
+[connection signal="body_exited" from="ShotgunMod" to="ShotgunMod" method="_on_body_exited"]
+[connection signal="body_entered" from="AutomaticMod" to="AutomaticMod" method="_on_body_entered"]
+[connection signal="body_exited" from="AutomaticMod" to="AutomaticMod" method="_on_body_exited"]

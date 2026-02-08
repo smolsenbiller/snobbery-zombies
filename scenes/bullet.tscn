@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bnhfogjsvlsch"]
+
+[ext_resource type="Script" uid="uid://dhls20kxvcsv4" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://bchtfyqinosxv" path="res://assets/bullet.png" id="2_y25gk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y25gk"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5glv"]
+size = Vector2(1, 1)
+
+[node name="bullet" type="CharacterBody2D" unique_id=920290066 groups=["bullet"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("1_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=425214535]
+texture = ExtResource("2_y25gk")
+centered = false
+offset = Vector2(-40, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1277451917]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_y25gk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=914283530]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=458942905]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_l5glv")
+
+[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]

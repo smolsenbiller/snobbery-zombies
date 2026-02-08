@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://bytsv41nrqkoe"]
+
+[ext_resource type="Texture2D" uid="uid://xdwk8x7haa5o" path="res://assets/map.png" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bim7fdsr8xi34" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bxy37qxtu1cte" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://dapwke8s2ag04" path="res://assets/grave_spawn.png" id="2_tbgi4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
+font_size = 8
+shadow_size = 2
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jyhfs"]
+vertices = PackedVector2Array(88, 96, -87, 96, -17, 52, -13, 52, -43, 52, 88, -95, 44, 52, 44, -51, -87, -95, -43, -51, -17, -51, 19, -51, 19, -45, 15, -45, 15, -51, 38, -45, 38, 46, 19, 46, 15, 46, 19, 52, 15, 52, -13, -45, -13, 46, -17, 46, -37, 46, -37, -45, -17, -45, -13, -51)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 0, 6, 7), PackedInt32Array(4, 1, 8, 9), PackedInt32Array(9, 8, 5, 10), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(12, 15, 16, 17), PackedInt32Array(13, 12, 17, 18), PackedInt32Array(17, 19, 20, 18), PackedInt32Array(21, 13, 18, 22), PackedInt32Array(23, 24, 25, 26), PackedInt32Array(5, 7, 11), PackedInt32Array(19, 6, 0), PackedInt32Array(5, 11, 14), PackedInt32Array(20, 19, 0), PackedInt32Array(5, 14, 27), PackedInt32Array(10, 5, 27), PackedInt32Array(10, 27, 21, 26), PackedInt32Array(26, 21, 22, 23), PackedInt32Array(23, 22, 3, 2), PackedInt32Array(0, 3, 20)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-89, -97, -71.67209, -97.00001, -55.988697, -96.99999, -32.432526, -96.999985, -7.5357666, -96.99998, 16.020401, -96.99998, 39.959595, -96.99998, 62.74971, -96.999985, 90, -97, 90.00001, -64.193886, 90, -29, 90, -5, 89.99999, 19.35669, 89.999985, 43.572075, 89.999985, 67.141045, 89.99999, 80.986725, 90, 98, 79.48058, 97.99999, 65.56993, 98, 51, 98, 40, 98, 28.040993, 97.99999, 16.451878, 98, 4, 98, -8.163502, 98, -32, 98, -55.52497, 98, -71, 98, -89, 98, -88.99999, 83.49448, -88.999985, 67.12877, -89, 43, -88.999985, 17.96201, -88.99998, -5.019619, -88.99998, -29.341839, -88.99998, -53.230297, -88.99998, -76.90834), PackedVector2Array(-19, -49, -29.665108, -49, -41, -49, -40.999996, -30.890491, -40.999996, -14.361334, -40.999992, 1.3354187, -40.999992, 17.62675, -40.999992, 33.561344, -41, 50, -29.03318, 50, -19, 50, -19, 48, -30, 48, -39, 48, -39, 34, -39, 16.450943, -39.000008, -6.4071884, -39.000008, -23.260384, -39.000008, -36.283302, -39, -47, -29.370277, -47, -19, -47), PackedVector2Array(13, 48, 1.2012329, 48, -11, 48, -11, 50, 1.3753357, 50, 13, 50), PackedVector2Array(21, 48, 21, 50, 30.102371, 50, 42, 50, 42, 39.747585, 42, 24.80952, 42, 9.488438, 42, -5.258106, 42, -22.111301, 42.000008, -38.77297, 42, -49, 32.75267, -48.999996, 21, -49, 21, -47, 31.412079, -46.999996, 40, -47, 40, -38.77297, 40, -23.451885, 40, -6.7902145, 40, 9.296925, 40, 22.894386, 40, 38.5985, 40, 48, 29.754166, 48), PackedVector2Array(13, -49, 0.9634609, -49, -11, -49, -11, -47, 0.7803936, -47.000004, 13, -47)])
+agent_radius = 2.0
+
+[node name="main" type="Node2D" unique_id=635146039]
+script = ExtResource("1_tefeu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2104748532]
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -97.5
+offset_right = 89.5
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jyhfs")
+stretch_mode = 4
+
+[node name="WallCollisions" type="Node" parent="." unique_id=474789653]
+
+[node name="RightWall" type="StaticBody2D" parent="WallCollisions" unique_id=1292342547]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/RightWall" unique_id=1877414361]
+polygon = PackedVector2Array(21, -47, 21, -49, 42, -49, 42, 50, 21, 50, 21, 48, 40, 48, 40, -47)
+
+[node name="LeftWall" type="StaticBody2D" parent="WallCollisions" unique_id=564510225]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/LeftWall" unique_id=458786746]
+polygon = PackedVector2Array(-19, 48, -19, 50, -41, 50, -41, -49, -19, -49, -19, -47, -39, -47, -39, 48)
+
+[node name="BottomMiddleWall" type="StaticBody2D" parent="WallCollisions" unique_id=553037892]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/BottomMiddleWall" unique_id=1660470885]
+polygon = PackedVector2Array(-11, 48, 13, 48, 13, 50, -11, 50)
+
+[node name="TopMiddleWall" type="StaticBody2D" parent="WallCollisions" unique_id=367650395]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/TopMiddleWall" unique_id=151810860]
+polygon = PackedVector2Array(-11, -49, 13, -49, 13, -47, -11, -47)
+
+[node name="TopLeftWindow" type="StaticBody2D" parent="WallCollisions" unique_id=805726934]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/TopLeftWindow" unique_id=730267623]
+polygon = PackedVector2Array(-19, -49, -11, -49, -11, -47, -19, -47)
+
+[node name="TopRightWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1781097934]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/TopRightWindow" unique_id=1652794080]
+polygon = PackedVector2Array(13, -49, 21, -49, 21, -47, 13, -47)
+
+[node name="BottomLeftWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1909451426]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/BottomLeftWindow" unique_id=324745699]
+polygon = PackedVector2Array(-19, 48, -11, 48, -11, 50, -19, 50)
+
+[node name="BottomRightWindow" type="StaticBody2D" parent="WallCollisions" unique_id=1124488086]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="WallCollisions/BottomRightWindow" unique_id=1392102708]
+polygon = PackedVector2Array(13, 48, 21, 48, 21, 50, 13, 50)
+
+[node name="Player" parent="." unique_id=1871333918 instance=ExtResource("1_o5qli")]
+unique_name_in_owner = true
+position = Vector2(2, -8)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=778408093]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" unique_id=1045159839]
+
+[node name="RoundCount" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=234400965]
+modulate = Color(0.57, 0, 0, 1)
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 49.0
+offset_bottom = 28.0
+text = "1"
+
+[node name="GameOverText" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=636342486]
+visible = false
+modulate = Color(0.5686275, 0, 0, 1)
+offset_left = 51.0
+offset_top = 64.0
+offset_right = 223.0
+offset_bottom = 87.0
+text = "You survived x rounds"
+
+[node name="PlayerScore" type="Label" parent="Player/Camera2D/CanvasLayer" unique_id=940809676]
+offset_left = 6.0
+offset_top = 148.0
+offset_right = 104.0
+offset_bottom = 160.0
+text = "0"
+label_settings = SubResource("LabelSettings_jyhfs")
+vertical_alignment = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=719104958]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_jyhfs")
+
+[node name="SpawnTopLeft" type="Sprite2D" parent="." unique_id=168384272 groups=["spawns"]]
+position = Vector2(-69, -85)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnTopRight" type="Sprite2D" parent="." unique_id=981349967 groups=["spawns"]]
+position = Vector2(70, -85)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnBottomRight" type="Sprite2D" parent="." unique_id=652633105 groups=["spawns"]]
+position = Vector2(70, 68)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)
+
+[node name="SpawnBottomLeft" type="Sprite2D" parent="." unique_id=956873161 groups=["spawns"]]
+position = Vector2(-66, 68)
+texture = ExtResource("2_tbgi4")
+region_enabled = true
+region_rect = Rect2(8, 0, 8, 16)

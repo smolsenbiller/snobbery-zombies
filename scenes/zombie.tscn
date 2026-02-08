@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bnok717jrsxeu"]
+
+[ext_resource type="Texture2D" uid="uid://omra7apc7y4u" path="res://assets/zombie.png" id="1_1vlb3"]
+[ext_resource type="Script" uid="uid://dg11d5i52462k" path="res://scripts/zombie.gd" id="1_httt1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vlb3"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_httt1"]
+size = Vector2(4, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xepks"]
+size = Vector2(4, 10)
+
+[sub_resource type="Animation" id="Animation_httt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_1vlb3")]
+}
+
+[sub_resource type="Animation" id="Animation_xepks"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.0, 0.08726646259971647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_1vlb3")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gx57"]
+_data = {
+&"RESET": SubResource("Animation_httt1"),
+&"walking": SubResource("Animation_xepks")
+}
+
+[node name="zombie" type="CharacterBody2D" unique_id=1902990993 groups=["zombie"]]
+motion_mode = 1
+script = ExtResource("1_httt1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1016699576]
+position = Vector2(0, -6)
+texture = ExtResource("1_1vlb3")
+centered = false
+offset = Vector2(-8, -8)
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="feet" type="CollisionShape2D" parent="." unique_id=1963523613]
+shape = SubResource("CircleShape2D_1vlb3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1861570419]
+
+[node name="Head" type="Area2D" parent="." unique_id=1251842546 groups=["zombie"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=2146702355]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_httt1")
+
+[node name="Body" type="Area2D" parent="." unique_id=241960685 groups=["zombie"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body" unique_id=2074430354]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_xepks")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1419504120]
+libraries/ = SubResource("AnimationLibrary_4gx57")
+
+[connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]
+[connection signal="body_entered" from="Body" to="." method="_on_body_body_entered"]
