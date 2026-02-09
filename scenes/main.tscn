@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bchtfyqinosxv" path="res://assets/bullet.png" id="12_trceg"]
 [ext_resource type="Script" uid="uid://bxagnlhvw3hh4" path="res://scenes/shotgun_mod.gd" id="13_trceg"]
 [ext_resource type="Script" uid="uid://dmjeagt33wkfc" path="res://scenes/automatic_mod.gd" id="14_a8y0u"]
+[ext_resource type="Script" uid="uid://dsby5vrdmj1cj" path="res://scenes/zombie_counter.gd" id="15_jkv2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
 size = Vector2(72, 16)
@@ -56,6 +57,9 @@ font_size = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbj1t"]
 size = Vector2(20, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_muem4"]
+size = Vector2(259, 291)
 
 [node name="main" type="Node2D" unique_id=635146039]
 y_sort_enabled = true
@@ -342,6 +346,13 @@ label_settings = SubResource("LabelSettings_jkv2x")
 position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_jbj1t")
 
+[node name="ZombieCounter" type="Area2D" parent="." unique_id=1058249171]
+script = ExtResource("15_jkv2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZombieCounter" unique_id=1191278971]
+position = Vector2(129.5, 145.5)
+shape = SubResource("RectangleShape2D_muem4")
+
 [connection signal="body_entered" from="MiddleWall" to="MiddleWall" method="_on_body_entered"]
 [connection signal="body_exited" from="MiddleWall" to="MiddleWall" method="_on_body_exited"]
 [connection signal="body_entered" from="LowerWall" to="LowerWall" method="_on_body_entered"]
@@ -352,3 +363,4 @@ shape = SubResource("RectangleShape2D_jbj1t")
 [connection signal="body_exited" from="ShotgunMod" to="ShotgunMod" method="_on_body_exited"]
 [connection signal="body_entered" from="AutomaticMod" to="AutomaticMod" method="_on_body_entered"]
 [connection signal="body_exited" from="AutomaticMod" to="AutomaticMod" method="_on_body_exited"]
+[connection signal="body_exited" from="ZombieCounter" to="ZombieCounter" method="_on_body_exited"]

@@ -64,7 +64,6 @@ func _on_head_body_entered(body: Node2D) -> void:
 	if health <= 0:
 		roundInfo.player_score += 100
 		queue_free()
-		roundInfo.zombies_left -= 1
 	else:
 		roundInfo.player_score += 10
 
@@ -76,6 +75,5 @@ func _on_body_body_entered(body: Node2D) -> void:
 	if health <= 0:
 		roundInfo.player_score += 60
 		queue_free()
-		roundInfo.zombies_left -= 1
 	else:
 		roundInfo.player_score += 10
